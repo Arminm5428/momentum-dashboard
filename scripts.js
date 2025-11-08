@@ -108,9 +108,12 @@ navigator.geolocation.getCurrentPosition( position => {
             console.log(data.weather[0].icon)
 
             weatherDiv.innerHTML = `
-                <img src=https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png />
+                <div>
+                    <img src=https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png />
+                    <span>${Math.round(data.main.temp)}°</span>
+                </div>
+                <p>${data.name}</p>
             `
-
         } catch (err) {
             console.error(err.message)
         }
